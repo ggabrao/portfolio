@@ -1,18 +1,19 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DatePipe],
+  imports: [RouterOutlet, DatePipe, NgClass, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'portfolio';
   myDate: Date;
   isDarkMode = false;
+  isEnglish: boolean = false;
 
   constructor() {
     this.myDate = new Date();

@@ -3,22 +3,29 @@
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <span class="mr-2 -translate-y-0.5 text-sm leading-6">PT</span>
+        <span class="mr-2 -translate-y-0.5 text-sm leading-6 dark:text-gray-300">PT</span>
         <button type="button"
-          class="group relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          class="group relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:focus:ring-offset-0"
           role="switch" aria-checked="false" (click)="isEnglish = !isEnglish">
-          <span class="sr-only">Use setting</span>
-          <span aria-hidden="true" class="pointer-events-none absolute h-full w-full rounded-md bg-white"></span>
-          <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+          <span class="sr-only">Alterar idioma</span>
+          <span aria-hidden="true"
+            class="pointer-events-none absolute h-full w-full rounded-md bg-white dark:bg-gray-900"></span>
           <span aria-hidden="true"
             class="pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out"
             [ngClass]="{'bg-indigo-600': isEnglish, 'bg-gray-200': !isEnglish}"></span>
-          <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
           <span aria-hidden="true"
             class="pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
             [ngClass]="{'translate-x-5': isEnglish, 'translate-x-0': !isEnglish}"></span>
         </button>
-        <span class="ml-2 -translate-y-0.5 text-sm leading-6">EN</span>
+        <span class="ml-2 -translate-y-0.5 text-sm leading-6 dark:text-gray-300">EN</span>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="#"
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Home</a>
+        <a href="#"
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Experiência</a>
+        <a href="#"
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Projetos</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <div class="pointer-events-auto">
@@ -43,6 +50,7 @@
           </button>
         </div>
       </div>
+
     </nav>
   </header>
 

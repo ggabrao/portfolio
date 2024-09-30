@@ -1,12 +1,12 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DatePipe, NgClass, FormsModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, DatePipe, NgClass, FormsModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

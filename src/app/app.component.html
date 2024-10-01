@@ -51,7 +51,7 @@
       <div class="overflow-hidden">
         <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div class="mx-auto max-w-1xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-            <div class="ml-auto w-36 flex-none space-y-8 sm:ml-0 pt-20">
+            <div class="ml-auto w-40 flex-none space-y-8 sm:ml-0 pt-20">
               <div class="relative">
                 <img src="assets/profile.webp" alt=""
                   class="aspect-[2/3] w-full rounded-xl bg-gray-900/5  object-cover shadow-lg">
@@ -61,6 +61,7 @@
               </div>
             </div>
             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-4xl lg:mt-20">
+              <p class="text-base font-semibold leading-10 text-indigo-600">Gabriel Abrão</p>
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
                 Desenvolvedor Web
               </h1>
@@ -70,7 +71,7 @@
                 atendendo às necessidades dos clientes com a melhor performance possível.
               </p>
               <!-- social -->
-              <div class="mt-10 flex justify-start space-x-10 dark:text-gray-300">
+              <div class="mt-8 flex justify-start space-x-10 dark:text-gray-300">
                 <a href="mailto:gguimaraesabrao@gmail.com" target="_blank"
                   class="hover:text-gray-500 dark:hover:text-gray-100">
                   <span class="sr-only">Email</span>
@@ -259,8 +260,6 @@
                 </ul>
               </div>
             </div>
-
-
             <dl
               class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
               <div class="relative pl-9">
@@ -383,8 +382,6 @@
               </div>
             </dl>
           </div>
-
-
           <!-- Projetos-->
           <div class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -447,8 +444,12 @@
 
   <!-- Footer -->
   <footer class="mx-auto mt-40 max-w-7xl overflow-hidden px-6 pb-20 sm:mt-64 sm:pb-24 lg:px-8">
-    <hr>
-
+    <hr class="pb-12">
+    <div class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+      <div class="pb-6">
+        <span class="text-sm leading-6 text-gray-600 hover:text-gray-900">❮ Este site é de minha autoria 😃 ❯</span>
+      </div>
+    </div>
     <!-- social -->
     <div class="mt-10 flex justify-center space-x-10 dark:text-gray-300">
       <a href="mailto:gguimaraesabrao@gmail.com" target="_blank" class="hover:text-gray-500 dark:hover:text-gray-100">
@@ -484,7 +485,8 @@
       </a>
     </div>
     <!-- end social section -->
-    <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; {{myDate | date: 'yyyy'}} Gabriel Abrão. All
-      rights reserved.</p>
+    <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; {{myDate | date: 'yyyy'}} Gabriel Abrão. Todos
+      os direitos reservados.</p>
+
   </footer>
 </div>

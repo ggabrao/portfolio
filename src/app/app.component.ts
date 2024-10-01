@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'portfolio';
   myDate: Date;
   isDarkMode = false;
   isEnglish: boolean = false;

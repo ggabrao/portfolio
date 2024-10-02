@@ -1,6 +1,7 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslationService } from './translation.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   myDate: Date;
   isDarkMode = false;
-  isEnglish: boolean = false;
+  isEnglish = false;
 
-  constructor() {
+  constructor(private translationService: TranslationService) {
     this.myDate = new Date();
   }
 
@@ -24,5 +25,14 @@ export class AppComponent {
     } else {
       document.documentElement.classList.remove('dark');
     }
+  }
+
+  toggleLanguage() {
+    this.isEnglish = !this.isEnglish;
+    this.translationService.setLanguage(this.isEnglish ? 'en' : 'pt');
+  }
+
+  translate(key: string): string {
+    return this.translationService.translate(key);
   }
 }

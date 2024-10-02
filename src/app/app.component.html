@@ -6,8 +6,8 @@
         <span class="mr-2 -translate-y-0.5 text-sm leading-6 dark:text-gray-300">PT</span>
         <button type="button"
           class="group relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:focus:ring-0 dark:focus:ring-offset-0"
-          role="switch" aria-checked="false" (click)="isEnglish = !isEnglish">
-          <span class="sr-only">Alterar idioma</span>
+          role="switch" aria-checked="false" (click)="toggleLanguage()">
+          <span class="sr-only">Change Language</span>
           <span aria-hidden="true"
             class="pointer-events-none absolute h-full w-full rounded-md bg-white dark:bg-gray-900"></span>
           <span aria-hidden="true"
@@ -56,9 +56,9 @@
             </svg>
           </a>
         </div>
-        <!-- Fim social -->
+        <!-- End social -->
         <div class="pointer-events-auto">
-          <button type="button" (click)="toggleTheme()" aria-label="Switch to dark theme"
+          <button type="button" (click)="toggleTheme()" aria-label="Toggle theme"
             class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
             <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
               aria-hidden="true"
@@ -102,13 +102,11 @@
                 class="text-sm font-semibold leading-10 text-indigo-600 lg:text-base dark:text-indigo-400 sm:leading-7 lg:leading-9 ">
                 Gabriel Abrão</p>
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-6xl">
-                Desenvolvedor Web
+                {{ translate('title') }}
               </h1>
               <p
                 class="relative mt-4 sm:mt-2 lg:mt-6 text-base leading-8 text-gray-600 dark:text-gray-300 lg:text-lg lg:max-w-none">
-                Desenvolvo sites e aplicações web utilizando tecnologias modernas e focadas na experiência do
-                usuário,
-                atendendo às necessidades dos clientes com a melhor performance possível.
+                {{ translate('description') }}
               </p>
             </div>
             <div class="flex flex-1 justify-start gap-8 items-center mt-8 sm:hidden dark:text-gray-300">
@@ -147,17 +145,15 @@
             </div>
           </div>
 
-          <!-- Experiência -->
+          <!-- Experience -->
           <div
             class="mt-32 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-52 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div>
               <p class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                Experiência
+                {{ translate('exTitle') }}
               </p>
-              <p class="mt-6 text-base leading-7 text-gray-600 dark:text-gray-300 lg:max-w-sm">Fullstack na
-                área
-                de
-                desenvolvimento web, com foco em Frontend.</p>
+              <p class="mt-6 text-base leading-7 text-gray-600 dark:text-gray-300 lg:max-w-sm">{{ translate('exDesc')
+                }}</p>
               <div class="flow-root pt-6 sm:pt-12 max-w-sm">
                 <ul role="list" class="-mb-8">
                   <li>
@@ -178,8 +174,8 @@
                         <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p class="text-sm text-gray-500 dark:text-gray-300"><span
-                                class="font-medium text-gray-900 dark:text-gray-300">Graduação</span> em
-                              Engenharia Civil (UFG)</p>
+                                class="font-medium text-gray-900 dark:text-gray-300">{{ translate('grad')
+                                }}</span> {{ translate('gradDesc') }}</p>
                           </div>
                           <div class="whitespace-nowrap text-right text-sm text-gray-500">
                             <time datetime="2020-09-20"></time>
@@ -206,9 +202,9 @@
                         <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p class="text-sm text-gray-500 dark:text-gray-300"><span
-                                class="font-medium text-gray-900 dark:text-gray-300">Pós-Graduação</span>
-                              em
-                              Desenvolvimento de Aplicações Web</p>
+                                class="font-medium text-gray-900 dark:text-gray-300">{{ translate('pos')
+                                }}</span>
+                              {{ translate('posDesc') }}</p>
                           </div>
                           <div class="whitespace-nowrap text-right text-sm text-gray-500">
                             <time datetime="2020-09-22"></time>
@@ -235,8 +231,8 @@
                         <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p class="text-sm text-gray-500 dark:text-gray-300"><span
-                                class="font-medium text-gray-900 dark:text-gray-300">Inglês fluente -
-                              </span> escrita e fala</p>
+                                class="font-medium text-gray-900 dark:text-gray-300">{{ translate('ing') }}
+                              </span> {{ translate('ingDesc') }}</p>
                           </div>
                           <div class="whitespace-nowrap text-right text-sm text-gray-500">
                             <time datetime="2020-09-28"></time>
@@ -263,9 +259,10 @@
                         <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p class="text-sm text-gray-500 dark:text-gray-300"><span
-                                class="font-medium text-gray-900 dark:text-gray-300">Desenvolvedor</span>
+                                class="font-medium text-gray-900 dark:text-gray-300">{{ translate('des')
+                                }}</span>
                               -
-                              Capgemini - 10 meses</p>
+                              {{ translate('capDesc') }}</p>
                           </div>
                           <div class="whitespace-nowrap text-right text-sm text-gray-500">
                             <time datetime="2020-09-30"></time>
@@ -290,9 +287,10 @@
                         <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p class="text-sm text-gray-500 dark:text-gray-300"><span
-                                class="font-medium text-gray-900 dark:text-gray-300">Desenvolvedor</span>
+                                class="font-medium text-gray-900 dark:text-gray-300">{{ translate('des')
+                                }}</span>
                               -
-                              Pequi - 6 meses</p>
+                              {{ translate('peqDesc') }}</p>
                           </div>
                           <div class="whitespace-nowrap text-right text-sm text-gray-500">
                             <time datetime="2020-10-04"></time>
@@ -314,11 +312,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Frontend essencial
+                  {{ translate('t1') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">HTML, CSS, JS, pré-processadores CSS, design responsivo
-                  e
-                  acessibilidade.</dd>
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d1') }}</dd>
               </div>
               <div class="relative pl-9">
                 <dt class="font-semibold text-gray-900 dark:text-white">
@@ -328,10 +324,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Metodologias Ágeis
+                  {{ translate('t2') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Participação nos ritos e utilização de ferramentas do
-                  Agile.
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d2') }}
                 </dd>
               </div>
               <div class="relative pl-9">
@@ -342,12 +337,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Angular e Typescript
+                  {{ translate('t3') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Estudo aprofundado do framework e aplicação em projetos
-                  usando
-                  Typescript,
-                  RxJS, Angular Material.</dd>
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d3') }}</dd>
               </div>
               <div class="relative pl-9">
                 <dt class="font-semibold text-gray-900 dark:text-white">
@@ -357,9 +349,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  API REST
+                  {{ translate('t4') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Construção, utilização e testes de API's com Postman.
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d4') }}
                 </dd>
               </div>
               <div class="relative pl-9">
@@ -370,12 +362,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Laravel
+                  {{ translate('t5') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Aplicação em projetos fullstack utilizando Blade e
-                  ferramentas do
-                  ecossistema (Breeze,
-                  Herd, Valet).
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d5') }}
                 </dd>
               </div>
               <div class="relative pl-9">
@@ -386,12 +375,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Ferramentas
+                  {{ translate('t6') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Utilização plena de Docker, Github Copilot e
-                  Gerenciadores
-                  de banco de
-                  dados. </dd>
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d6') }} </dd>
               </div>
               <div class="relative pl-9">
                 <dt class="font-semibold text-gray-900 dark:text-white">
@@ -401,11 +387,9 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Web Design
+                  {{ translate('t7') }}
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Tipografia, cores, otimização de imagens, hierarquia
-                  visual,
-                  UI/UX.
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d7') }}
                 </dd>
               </div>
               <div class="relative pl-9">
@@ -416,35 +400,33 @@
                       d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                       clip-rule="evenodd" />
                   </svg>
-                  Next.js e React (aprendendo)
+                  {{ translate('t8') }} 
                 </dt>
-                <dd class="mt-2 dark:text-gray-300">Focado no estudo da documentação e elaboração dos
-                  primeiros
-                  projetos
-                  com essa tecnologia.
+                <dd class="mt-2 dark:text-gray-300">{{ translate('d8') }}
                 </dd>
               </div>
             </dl>
           </div>
-          <!-- Projetos-->
+          <!-- Projects-->
           <div class="bg-white mt-32 sm:mt-52 dark:bg-gray-900">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
               <div class="mx-auto max-w-2xl lg:text-center">
-                <p class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Projetos</p>
+                <p class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">{{
+                  translate('proj') }}</p>
               </div>
               <div class="mx-auto mt-8 sm:mt-16 max-w-2xl lg:max-w-none">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                   <div class="flex flex-col">
                     <dt
                       class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                      Portfolio pessoal - Angular
+                      {{ translate('p1') }}
                     </dt>
                     <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                      <p class="flex-auto">Projeto para consolidar a especialização no Framework e nos básicos de
-                        Frontend e Web Design.</p>
+                      <p class="flex-auto">{{ translate('pd1') }}</p>
                       <p class="mt-6">
                         <a href="https://github.com/ggabrao/self-introduction" target="_blank"
-                          class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">Visitar
+                          class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">{{
+                          translate('plink') }}
                           <span aria-hidden="true">→</span></a>
                       </p>
                     </dd>
@@ -452,15 +434,14 @@
                   <div class="flex flex-col">
                     <dt
                       class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                      Gerador de cartões de trabalho
+                      {{ translate('p2') }}
                     </dt>
                     <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                      <p class="flex-auto">Projeto simples para testar o uso de uma das novas ferramentas de auxílio de
-                        código
-                        baseada em Inteligência Artificial (GitHub Copilot).</p>
+                      <p class="flex-auto">{{ translate('pd2') }}</p>
                       <p class="mt-6">
                         <a href="https://github.com/ggabrao/business-card-generator" target="_blank"
-                          class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">Visitar
+                          class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">{{
+                          translate('plink') }}
                           <span aria-hidden="true">→</span></a>
                       </p>
                     </dd>
@@ -468,13 +449,13 @@
                   <div class="flex flex-col">
                     <dt
                       class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                      Porfolio para Arquiteta - Next.js
+                      {{ translate('p3') }}
                     </dt>
                     <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                      <p class="flex-auto">Desenvolvimento de site pessoal para cliente.</p>
+                      <p class="flex-auto">{{ translate('pd3') }}</p>
                       <p class="mt-6">
-                        <span class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">(Em
-                          construção)
+                        <span class="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400">{{
+                          translate('pconstr') }}
                           <!-- <span aria-hidden="true">→</span> -->
                         </span>
                       </p>
@@ -494,8 +475,8 @@
     <hr class="pb-10">
     <div class="-mb-6 columns-2 flex justify-center space-x-12" aria-label="Footer">
       <div class="pb-6">
-        <span class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300">❮ Este site é de minha
-          autoria 😃 ❯</span>
+        <span class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300">❮ {{ translate('disc')
+          }} 😃 ❯</span>
       </div>
     </div>
     <!-- social -->
@@ -534,7 +515,6 @@
     </div>
     <!-- end social section -->
     <p class="mt-10 text-center text-xs leading-5 text-gray-500 dark:text-gray-400">&copy; {{myDate | date: 'yyyy'}}
-      Gabriel Abrão. Todos
-      os direitos reservados.</p>
+      Gabriel Abrão. {{ translate('rights') }}</p>
   </footer>
 </div>

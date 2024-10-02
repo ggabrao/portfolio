@@ -1,5 +1,5 @@
 import { DatePipe, NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from './translation.service';
 
@@ -14,16 +14,16 @@ export class AppComponent {
   isDarkMode = false;
   isEnglish = false;
 
-  constructor(private translationService: TranslationService) {
+  constructor(private translationService: TranslationService, private renderer: Renderer2) {
     this.myDate = new Date();
   }
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
-      document.documentElement.classList.add('dark');
+      this.renderer.addClass(document.documentElement, 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      this.renderer.removeClass(document.documentElement, 'dark');
     }
   }
 

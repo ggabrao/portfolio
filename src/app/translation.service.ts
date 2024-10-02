@@ -62,7 +62,7 @@ export class TranslationService {
       title: 'Web Developer',
       description: 'I craft websites and applications by leveraging modern technologies and user-centered design principles, fulfilling client needs with optimized performance.',
       exTitle: 'Experience',
-      exDesc: 'Full-stack Web Developer, with focus on Frontend.',
+      exDesc: 'Full-stack developer, with focus on Frontend.',
       grad: 'Graduation degree',
       gradDesc: 'in Civil Engineering on UFG',
       pos: 'Post-Graduate degree',

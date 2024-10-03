@@ -19,12 +19,35 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //check user's theme
     if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       this.renderer.addClass(document.documentElement, 'dark');
       this.isDarkMode = true;
     } else {
       this.renderer.removeClass(document.documentElement, 'dark');
       this.isDarkMode = false;
+    }
+
+    //check user's language
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+      if (!savedLanguage.startsWith('pt')) {
+        this.isEnglish = true;
+        this.translationService.setLanguage('en');
+      } else {
+        this.isEnglish = false;
+        this.translationService.setLanguage('pt');
+      }
+    } else {
+      // Check browser's language if no preference is saved
+      const browserLanguage = navigator.language;
+      if (!browserLanguage.startsWith('pt')) {
+        this.isEnglish = true;
+        this.translationService.setLanguage('en');
+      } else {
+        this.isEnglish = false;
+        this.translationService.setLanguage('pt');
+      }
     }
   }
 
@@ -41,7 +64,9 @@ export class AppComponent implements OnInit {
 
   toggleLanguage() {
     this.isEnglish = !this.isEnglish;
-    this.translationService.setLanguage(this.isEnglish ? 'en' : 'pt');
+    const newLanguage = this.isEnglish ? 'en' : 'pt';
+    this.translationService.setLanguage(newLanguage);
+    localStorage['language'] = newLanguage;
   }
 
   translate(key: string): string {

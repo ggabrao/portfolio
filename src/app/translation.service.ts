@@ -21,7 +21,7 @@ export class TranslationService {
       exTitle: 'Experiência',
       exDesc: 'Desenvolvedor Full-stack, com foco em Frontend.',
       grad: 'Graduação',
-      gradDesc: 'em Engenharia Civil pela UFG',
+      gradDesc: 'em Engenharia Civil pela Universidade Federal de Goiás (UFG)',
       pos: 'Pós-Graduação',
       posDesc: 'em Desenvolvimento de Aplicações Web',
       ing: 'Inglês fluente - ',
@@ -50,12 +50,13 @@ export class TranslationService {
       pd1: 'Desenvolvimento de projeto para demonstrar proficiência no Framework e nas melhores práticas de Frontend e Web Design.',
       plink: 'Visitar',
       p2: 'Gerador de cartões de trabalho',
-      pd2: 'Projeto simples para testar o uso de uma das ferramentas de auxílio de código baseada em Inteligência Artificial (GitHub Copilot).',
+      pd2: 'Projeto para testar o uso de uma das ferramentas de auxílio de código baseada em Inteligência Artificial (GitHub Copilot).',
       p3: 'Porfolio para Arquiteta - Next.js',
       pd3: 'Desenvolvimento de site pessoal para cliente.',
       pconstr: '(Em construção)',
       disc: 'Este site é de minha autoria',
-      rights: 'Todos os direitos reservados.'
+      rights: 'Todos os direitos reservados.',
+      langButton: 'Mudar idioma'
     },
 
     en: {
@@ -64,7 +65,7 @@ export class TranslationService {
       exTitle: 'Experience',
       exDesc: 'Full-stack developer, with focus on Frontend.',
       grad: 'Graduation degree',
-      gradDesc: 'in Civil Engineering on UFG',
+      gradDesc: 'in Civil Engineering on Universidade Federal de Goiás (UFG)',
       pos: 'Post-Graduate degree',
       posDesc: 'in Web Applications Development',
       ing: 'Advanced English - ',
@@ -93,12 +94,13 @@ export class TranslationService {
       pd1: 'Project to consolidate the specialization in the Framework and Frontend/Web Design best practices.',
       plink: 'Visit project',
       p2: 'Business card generator',
-      pd2: 'Simple project to test one of the AI Code Assistant tools (GitHub Copilot).',
+      pd2: 'Project to test one of the AI Code Assistant tools (GitHub Copilot).',
       p3: 'Porfolio for Architect - Next.js',
       pd3: 'Developing a personal website for a client.',
       pconstr: '(In Progress)',
       disc: 'This website was built by me',
-      rights: 'All rights reserved.'
+      rights: 'All rights reserved.',
+      langButton: 'Change language'
     }
   };
 

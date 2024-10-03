@@ -101,7 +101,7 @@
           "options": {
             "baseHref": "/portfolio/",
             "branch": "gh-pages",
-            "repo": "https://github.com/ggabrao/portfolio-angular.git"
+            "repo": "https://github.com/ggabrao/portfolio.git"
           }
         }
       }

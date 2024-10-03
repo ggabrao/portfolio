@@ -99,7 +99,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/portfolio-angular/",
+            "baseHref": "/portfolio/",
             "branch": "gh-pages",
             "repo": "https://github.com/ggabrao/portfolio-angular.git"
           }

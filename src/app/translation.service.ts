@@ -64,7 +64,7 @@ export class TranslationService {
       description: 'I craft websites and applications by leveraging modern technologies and user-centered design principles, fulfilling client needs with optimized performance.',
       exTitle: 'Experience',
       exDesc: 'Full-stack developer, with focus on Frontend.',
-      grad: 'Graduation degree',
+      grad: 'Graduate degree',
       gradDesc: 'in Civil Engineering on Universidade Federal de Goiás (UFG)',
       pos: 'Post-Graduate degree',
       posDesc: 'in Web Applications Development',

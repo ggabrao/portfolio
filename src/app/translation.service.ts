@@ -65,7 +65,7 @@ export class TranslationService {
       exTitle: 'Experience',
       exDesc: 'Websites and Web Applications.',
       grad: "Bachelor's degree",
-      gradDesc: 'in Civil Engineering on Universidade Federal de Goiás (UFG)',
+      gradDesc: 'in Civil Engineering on Universidade Federal de Goiás',
       pos: 'Postgraduate degree',
       posDesc: 'in Web Applications Development',
       ing: 'Advanced English',

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   myDate: Date;
   isDarkMode!: boolean;
   isEnglish = false;
+  languageTransitioning = false;
 
   constructor(private translationService: TranslationService, private renderer: Renderer2) {
     this.myDate = new Date();
@@ -63,11 +64,17 @@ export class AppComponent implements OnInit {
   }
 
   toggleLanguage() {
-    this.isEnglish = !this.isEnglish;
-    const newLanguage = this.isEnglish ? 'en' : 'pt';
-    this.translationService.setLanguage(newLanguage);
-    localStorage['language'] = newLanguage;
+    this.languageTransitioning = true;
+    setTimeout(() => {
+      this.isEnglish = !this.isEnglish;
+      const newLanguage = this.isEnglish ? 'en' : 'pt';
+      this.translationService.setLanguage(newLanguage);
+      localStorage['language'] = newLanguage;
+
+      this.languageTransitioning = false;
+    }, 300);
   }
+
 
   translate(key: string): string {
     return this.translationService.translate(key);

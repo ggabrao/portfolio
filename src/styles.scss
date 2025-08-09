@@ -22,8 +22,119 @@
     }
 }
 
+/* Scroll animations */
+.animate-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for different elements */
+.animate-child:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.animate-child:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.animate-child:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.animate-child:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.animate-child:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.animate-child:nth-child(6) {
+    transition-delay: 500ms;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Dark mode cursor color */
 .dark .typing-cursor {
     color: #38bdf8;
     /* sky-400 */
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+.mobile-menu-exit {
+    animation: slideUp 0.3s ease-in forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+}
+
+/* Mobile menu item stagger animation */
+.mobile-menu-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.mobile-menu-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mobile-menu-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mobile-menu-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

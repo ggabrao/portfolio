@@ -1,5 +1,5 @@
 import { DatePipe, CommonModule } from '@angular/common';
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, AfterViewInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface Project {
@@ -18,7 +18,7 @@ interface Project {
   imports: [DatePipe, FormsModule, CommonModule],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   myDate: Date;
   isDarkMode!: boolean;
   isMobileMenuOpen = false;
@@ -26,6 +26,9 @@ export class AppComponent implements OnInit {
   // Typing effect properties
   displayedDescription = '';
   isTypingComplete = false;
+
+  // Animation observer
+  private observer!: IntersectionObserver;
 
   // Projects data
   projects: Project[] = [
@@ -93,6 +96,46 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.startTypingEffect();
     }, 500);
+  }
+
+  ngAfterViewInit(): void {
+    this.setupScrollAnimations();
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupScrollAnimations(): void {
+    const options = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          element.classList.add('animate-in');
+
+          // Animate child elements with stagger
+          const children = element.querySelectorAll('.animate-child');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-in');
+            }, index * 150); // 150ms stagger delay
+          });
+        }
+      });
+    }, options);
+
+    // Observe sections
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => {
+      this.observer.observe(section);
+    });
   }
 
   toggleTheme() {

@@ -17,7 +17,6 @@ export class TranslationService {
   private translations: Translations = {
     pt: {
       title: 'Desenvolvedor Front-end',
-      description: 'React, Next.js, Angular, Typescript, Tailwind CSS, Web Design.',
       exTitle: 'Experiência',
       exDesc: 'Websites e Web Applications.',
       grad: 'Graduação',
@@ -62,7 +61,6 @@ export class TranslationService {
 
     en: {
       title: 'Front-end Developer',
-      description: 'React, Next.js, Angular, Typescript, Tailwind CSS, Web Design.',
       exTitle: 'Experience',
       exDesc: 'Websites and Web Applications.',
       grad: "Bachelor's degree",

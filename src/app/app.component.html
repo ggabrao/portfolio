@@ -105,7 +105,7 @@
                 </h1>
                 <p
                   class="relative text-center mt-2 sm:text-left sm:mt-2 lg:mt-3 text-base leading-8 text-gray-600 dark:text-gray-300 lg:text-lg lg:max-w-none">
-                  {{ translate('description') }}
+                  {{ displayedDescription }}<span class="typing-cursor" [class.hidden]="isTypingComplete">|</span>
                 </p>
               </div>
               <div class="flex flex-1 mx-auto justify-between w-32 items-center mt-5 sm:hidden dark:text-gray-300">

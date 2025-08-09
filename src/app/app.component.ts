@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
   isEnglish = false;
   languageTransitioning = false;
 
+  // Typing effect properties
+  displayedDescription = '';
+  isTypingComplete = false;
+
   constructor(private translationService: TranslationService, private renderer: Renderer2) {
     this.myDate = new Date();
   }
@@ -50,6 +54,11 @@ export class AppComponent implements OnInit {
         this.translationService.setLanguage('pt');
       }
     }
+
+    // Start typing effect after a short delay
+    setTimeout(() => {
+      this.startTypingEffect();
+    }, 500);
   }
 
   toggleTheme() {
@@ -72,11 +81,39 @@ export class AppComponent implements OnInit {
       localStorage['language'] = newLanguage;
 
       this.languageTransitioning = false;
+
+      // Restart typing effect for new language
+      this.displayedDescription = '';
+      this.isTypingComplete = false;
+      setTimeout(() => {
+        this.startTypingEffect();
+      }, 100);
     }, 300);
   }
 
+  startTypingEffect() {
+    // Define the exact parts to display in sequence
+    const parts = ['React,', 'Next.js,', 'Angular,', 'Web Design.'];
+    let currentPartIndex = 0;
 
-  translate(key: string): string {
+    const typePart = () => {
+      if (currentPartIndex < parts.length) {
+        if (currentPartIndex === 0) {
+          this.displayedDescription = parts[currentPartIndex];
+        } else {
+          this.displayedDescription += ' ' + parts[currentPartIndex];
+        }
+        currentPartIndex++;
+
+        // Constant delay of 600ms between each part
+        setTimeout(typePart, 600);
+      } else {
+        this.isTypingComplete = true;
+      }
+    };
+
+    typePart();
+  } translate(key: string): string {
     return this.translationService.translate(key);
   }
 }

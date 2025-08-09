@@ -17,6 +17,9 @@ export class TranslationService {
   private translations: Translations = {
     pt: {
       title: 'Desenvolvedor Front-end',
+      navAbout: 'Sobre',
+      navExperience: 'Experiência',
+      navProjects: 'Projetos',
       exTitle: 'Experiência',
       exDesc: 'Websites e Web Applications.',
       grad: 'Graduação',
@@ -61,6 +64,9 @@ export class TranslationService {
 
     en: {
       title: 'Front-end Developer',
+      navAbout: 'About',
+      navExperience: 'Experience',
+      navProjects: 'Projects',
       exTitle: 'Experience',
       exDesc: 'Websites and Web Applications.',
       grad: "Bachelor's degree",

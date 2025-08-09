@@ -1,4 +1,4 @@
-import { DatePipe, NgClass } from '@angular/common';
+import { DatePipe, NgClass, CommonModule } from '@angular/common';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from './translation.service';
@@ -6,7 +6,7 @@ import { TranslationService } from './translation.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, NgClass, FormsModule],
+  imports: [DatePipe, NgClass, FormsModule, CommonModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isDarkMode!: boolean;
   isEnglish = false;
   languageTransitioning = false;
+  isMobileMenuOpen = false;
 
   // Typing effect properties
   displayedDescription = '';
@@ -72,23 +73,20 @@ export class AppComponent implements OnInit {
     }
   }
 
-  toggleLanguage() {
-    this.languageTransitioning = true;
-    setTimeout(() => {
-      this.isEnglish = !this.isEnglish;
-      const newLanguage = this.isEnglish ? 'en' : 'pt';
-      this.translationService.setLanguage(newLanguage);
-      localStorage['language'] = newLanguage;
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    // Close mobile menu if open
+    this.isMobileMenuOpen = false;
+  }
 
-      this.languageTransitioning = false;
-
-      // Restart typing effect for new language
-      this.displayedDescription = '';
-      this.isTypingComplete = false;
-      setTimeout(() => {
-        this.startTypingEffect();
-      }, 100);
-    }, 300);
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
   startTypingEffect() {

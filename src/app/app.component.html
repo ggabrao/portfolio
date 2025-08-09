@@ -5,17 +5,29 @@
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="mx-auto flex max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
-          <span class="mr-2 text-sm font-medium leading-6 dark:text-gray-300">PT</span>
-          <button type="button" (click)="toggleLanguage()"
-            class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 dark:bg-gray-400 transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 focus:outline-hidden dark:focus:ring-0 dark:focus:ring-offset-0"
-            role="switch" aria-checked="false"
-            [ngClass]="{'bg-sky-600 dark:bg-sky-400': isEnglish, 'bg-gray-200': !isEnglish}">
-            <span class="sr-only">{{ translate('langButton') }}</span>
-            <span aria-hidden="true"
-              class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white ring-0 shadow-sm transition duration-200 ease-in-out"
-              [ngClass]="{'translate-x-5': isEnglish, 'translate-x-0': !isEnglish}"></span>
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <button (click)="scrollToSection('about')"
+              class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+              {{ translate('navAbout') }}
+            </button>
+            <button (click)="scrollToSection('experience')"
+              class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+              {{ translate('navExperience') }}
+            </button>
+            <button (click)="scrollToSection('projects')"
+              class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+              {{ translate('navProjects') }}
+            </button>
+          </nav>
+
+          <!-- Mobile Navigation Button -->
+          <button (click)="toggleMobileMenu()"
+            class="md:hidden p-2 rounded-md text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
-          <span class="ml-2 text-sm font-medium leading-6 dark:text-gray-300">EN</span>
         </div>
 
         <div class="flex flex-1 justify-end dark:text-gray-300">
@@ -78,6 +90,25 @@
           </div>
         </div>
       </nav>
+
+      <!-- Mobile Menu -->
+      <div *ngIf="isMobileMenuOpen"
+        class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
+        <nav class="px-6 py-4 space-y-4">
+          <button (click)="scrollToSection('about')"
+            class="block w-full text-left text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors py-2">
+            {{ translate('navAbout') }}
+          </button>
+          <button (click)="scrollToSection('experience')"
+            class="block w-full text-left text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors py-2">
+            {{ translate('navExperience') }}
+          </button>
+          <button (click)="scrollToSection('projects')"
+            class="block w-full text-left text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors py-2">
+            {{ translate('navProjects') }}
+          </button>
+        </nav>
+      </div>
     </header>
 
     <main class="isolate">
@@ -145,7 +176,7 @@
               </div>
             </div>
             <!-- About -->
-            <div class="bg-white py-24 sm:py-32">
+            <div id="about" class="bg-white py-24 sm:py-32">
               <div class="mx-auto max-w-7xl px-6 lg:px-0">
                 <div class="mx-auto max-w-3xl lg:mx-0">
                   <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -163,7 +194,7 @@
               </div>
             </div>
             <!-- Experience -->
-            <div
+            <div id="experience"
               class="mt-16 grid max-w-2xl grid-cols-1 lg:gap-x-8 gap-y-16 sm:mt-20 lg:mt-0 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div>
                 <p class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -495,7 +526,7 @@
               </dl>
             </div>
             <!-- Projects-->
-            <div class="bg-white mt-16 lg:mt-52 dark:bg-gray-900">
+            <div id="projects" class="bg-white mt-16 lg:mt-52 dark:bg-gray-900">
               <div class="mx-auto max-w-7xl sm:mx-0 lg:mx-auto lg:px-8">
                 <div class="mx-auto sm:mx-0 lg:mx-auto max-w-2xl lg:text-center">
                   <p class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">{{
@@ -561,7 +592,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mx-auto max-w-7xl overflow-hidden px-6 pb-10 sm:mt-28 lg:px-8">
+    <footer id="contact" class="mx-auto max-w-7xl overflow-hidden px-6 pb-10 sm:mt-28 lg:px-8">
       <hr class="pb-10">
       <div class="-mb-6 columns-2 flex justify-center space-x-12" aria-label="Footer">
         <div class="pb-6">

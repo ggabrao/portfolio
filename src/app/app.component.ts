@@ -1,26 +1,23 @@
-import { DatePipe, NgClass, CommonModule } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslationService } from './translation.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, NgClass, FormsModule, CommonModule],
+  imports: [DatePipe, FormsModule, CommonModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   myDate: Date;
   isDarkMode!: boolean;
-  isEnglish = false;
-  languageTransitioning = false;
   isMobileMenuOpen = false;
 
   // Typing effect properties
   displayedDescription = '';
   isTypingComplete = false;
 
-  constructor(private translationService: TranslationService, private renderer: Renderer2) {
+  constructor(private renderer: Renderer2) {
     this.myDate = new Date();
   }
 
@@ -32,28 +29,6 @@ export class AppComponent implements OnInit {
     } else {
       this.renderer.removeClass(document.documentElement, 'dark');
       this.isDarkMode = false;
-    }
-
-    //check user's language
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-      if (!savedLanguage.startsWith('pt')) {
-        this.isEnglish = true;
-        this.translationService.setLanguage('en');
-      } else {
-        this.isEnglish = false;
-        this.translationService.setLanguage('pt');
-      }
-    } else {
-      // Check browser's language if no preference is saved
-      const browserLanguage = navigator.language;
-      if (!browserLanguage.startsWith('pt')) {
-        this.isEnglish = true;
-        this.translationService.setLanguage('en');
-      } else {
-        this.isEnglish = false;
-        this.translationService.setLanguage('pt');
-      }
     }
 
     // Start typing effect after a short delay
@@ -126,7 +101,5 @@ export class AppComponent implements OnInit {
     };
 
     typeChar();
-  } translate(key: string): string {
-    return this.translationService.translate(key);
   }
 }

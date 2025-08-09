@@ -100,20 +100,20 @@ export class AppComponent implements OnInit {
     const typeChar = () => {
       if (currentPartIndex < parts.length) {
         const currentPart = parts[currentPartIndex];
-        
+
         if (currentCharIndex < currentPart.length) {
           // Type character by character
           currentText += currentPart[currentCharIndex];
           this.displayedDescription = currentText;
           currentCharIndex++;
-          
+
           // 80ms delay between characters
           setTimeout(typeChar, 80);
         } else {
           // Finished current word, move to next
           currentPartIndex++;
           currentCharIndex = 0;
-          
+
           if (currentPartIndex < parts.length) {
             // Add space before next word and pause longer between words
             currentText += ' ';

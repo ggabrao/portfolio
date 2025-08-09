@@ -520,18 +520,18 @@
                 <div class="animate-child mx-auto sm:mx-0 lg:mx-auto mt-6 lg:mt-16 max-w-2xl sm:max-w-none">
                   <dl class="grid max-w-xl sm:max-w-none grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
                     <div *ngFor="let project of projects" class="animate-child flex flex-col">
+                      <!-- Project Title -->
+                      <dt
+                        class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white mb-4">
+                        {{project.title}}
+                      </dt>
+
                       <!-- Project Image -->
                       <div class="relative overflow-hidden rounded-lg mb-4 bg-gray-100 dark:bg-gray-800">
                         <img [src]="project.image" [alt]="project.title"
                           class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                           onerror="this.src='assets/placeholder-project.svg'" />
                       </div>
-
-                      <!-- Project Title -->
-                      <dt
-                        class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                        {{project.title}}
-                      </dt>
 
                       <!-- Technology Badges -->
                       <div class="mt-2 flex flex-wrap gap-2">

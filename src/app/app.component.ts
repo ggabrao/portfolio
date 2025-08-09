@@ -92,27 +92,42 @@ export class AppComponent implements OnInit {
   }
 
   startTypingEffect() {
-    // Define the exact parts to display in sequence
     const parts = ['React,', 'Next.js,', 'Angular,', 'Web Design.'];
     let currentPartIndex = 0;
+    let currentCharIndex = 0;
+    let currentText = '';
 
-    const typePart = () => {
+    const typeChar = () => {
       if (currentPartIndex < parts.length) {
-        if (currentPartIndex === 0) {
-          this.displayedDescription = parts[currentPartIndex];
+        const currentPart = parts[currentPartIndex];
+        
+        if (currentCharIndex < currentPart.length) {
+          // Type character by character
+          currentText += currentPart[currentCharIndex];
+          this.displayedDescription = currentText;
+          currentCharIndex++;
+          
+          // 80ms delay between characters
+          setTimeout(typeChar, 80);
         } else {
-          this.displayedDescription += ' ' + parts[currentPartIndex];
+          // Finished current word, move to next
+          currentPartIndex++;
+          currentCharIndex = 0;
+          
+          if (currentPartIndex < parts.length) {
+            // Add space before next word and pause longer between words
+            currentText += ' ';
+            this.displayedDescription = currentText;
+            setTimeout(typeChar, 300); // 300ms pause between words
+          } else {
+            // Typing complete, but keep cursor blinking
+            this.isTypingComplete = false; // Keep cursor visible and blinking
+          }
         }
-        currentPartIndex++;
-
-        // Constant delay of 600ms between each part
-        setTimeout(typePart, 600);
-      } else {
-        this.isTypingComplete = true;
       }
     };
 
-    typePart();
+    typeChar();
   } translate(key: string): string {
     return this.translationService.translate(key);
   }

@@ -31,24 +31,24 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   // Projects data
   projects: Project[] = [
     {
-      title: 'Notes',
-      description: 'Project to consolidate the specialization in the Framework and Frontend/Web Design best practices.',
-      githubUrl: 'https://github.com/ggabrao/self-introduction',
-      liveUrl: 'https://ggabrao.github.io/portfolio',
+      title: 'Next.js Handbook',
+      description: 'Designed to assist beginners in Next.js by sharing my personal knowledge and insights into key concepts of the framework.',
+      githubUrl: 'https://github.com/ggabrao/nextjs-handbook',
+      liveUrl: 'https://nextjs-handbook-eight.vercel.app/',
       technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript']
     },
     {
-      title: 'Tracker',
-      description: 'Project to test one of the AI Code Assistant tools (GitHub Copilot).',
-      githubUrl: 'https://github.com/ggabrao/business-card-generator',
-      liveUrl: 'https://business-card-generator-pearl.vercel.app',
+      title: 'Career Tracker',
+      description: 'Next.js app built entirely with an AI pair programmer tool, under my guidance. All within the Vercel ecosystem.',
+      githubUrl: 'https://github.com/ggabrao/career-tracker-v0',
+      liveUrl: 'https://career-tracker-v0.vercel.app',
       technologies: ['v0', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript']
     },
     {
       title: 'Final Paper',
-      description: 'Developing a personal website for a client.',
-      githubUrl: 'https://github.com/ggabrao/architect-portfolio',
-      liveUrl: 'https://ggabrao.github.io/portfolio',
+      description: 'Demonstration of the key concepts of the Angular framework, through practical examples and explanations.',
+      githubUrl: 'https://github.com/ggabrao/final-paper',
+      liveUrl: 'https://finalpaper.netlify.app/',
       technologies: ['Angular', 'Tailwind CSS', 'TypeScript']
     }
   ];

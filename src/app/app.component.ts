@@ -5,10 +5,8 @@ import { FormsModule } from '@angular/forms';
 interface Project {
   title: string;
   description: string;
-  image: string;
   githubUrl: string;
   liveUrl?: string;
-  status: 'completed' | 'in-progress';
   technologies: string[];
 }
 
@@ -33,30 +31,25 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   // Projects data
   projects: Project[] = [
     {
-      title: 'Personal Portfolio - Angular',
+      title: 'Notes',
       description: 'Project to consolidate the specialization in the Framework and Frontend/Web Design best practices.',
-      image: 'assets/portfolio-angular.svg',
       githubUrl: 'https://github.com/ggabrao/self-introduction',
       liveUrl: 'https://ggabrao.github.io/portfolio',
-      status: 'completed',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'HTML5', 'SCSS']
+      technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript']
     },
     {
-      title: 'Business card generator',
+      title: 'Tracker',
       description: 'Project to test one of the AI Code Assistant tools (GitHub Copilot).',
-      image: 'assets/placeholder-project.svg',
       githubUrl: 'https://github.com/ggabrao/business-card-generator',
       liveUrl: 'https://business-card-generator-pearl.vercel.app',
-      status: 'completed',
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel']
+      technologies: ['v0', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript']
     },
     {
-      title: 'Portfolio for Architect - Next.js',
+      title: 'Final Paper',
       description: 'Developing a personal website for a client.',
-      image: 'assets/placeholder-project.svg',
       githubUrl: 'https://github.com/ggabrao/architect-portfolio',
-      status: 'in-progress',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion']
+      liveUrl: 'https://ggabrao.github.io/portfolio',
+      technologies: ['Angular', 'Tailwind CSS', 'TypeScript']
     }
   ];
 
@@ -68,15 +61,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   getTechBadgeClass(tech: string): string {
     const techColors: { [key: string]: string } = {
       'Angular': 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 ring-red-700/10 dark:ring-red-300/10',
-      'React': 'bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 ring-cyan-700/10 dark:ring-cyan-300/10',
-      'Next.js': 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10',
-      'TypeScript': 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 ring-blue-700/10 dark:ring-blue-300/10',
-      'JavaScript': 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 ring-yellow-700/10 dark:ring-yellow-300/10',
+      'React': 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 ring-blue-700/10 dark:ring-blue-300/10',
+      'v0': 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 ring-yellow-700/10 dark:ring-yellow-300/10',
       'Tailwind CSS': 'bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 ring-teal-700/10 dark:ring-teal-300/10',
-      'SCSS': 'bg-pink-50 dark:bg-pink-900/20 text-pink-700 dark:text-pink-300 ring-pink-700/10 dark:ring-pink-300/10',
-      'HTML5': 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 ring-orange-700/10 dark:ring-orange-300/10',
-      'Vercel': 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10',
-      'Framer Motion': 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 ring-purple-700/10 dark:ring-purple-300/10'
+      'TypeScript': 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 ring-orange-700/10 dark:ring-orange-300/10',
+      'Next.js': 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 ring-purple-700/10 dark:ring-purple-300/10'
     };
 
     return techColors[tech] || 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10';

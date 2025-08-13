@@ -49,7 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'Demonstration of the key concepts of the Angular framework, through practical examples and explanations.',
       githubUrl: 'https://github.com/ggabrao/final-paper',
       liveUrl: 'https://finalpaper.netlify.app/',
-      technologies: ['Angular', 'Tailwind CSS', 'TypeScript']
+      technologies: ['Angular', 'TypeScript', 'HTML/CSS']
     }
   ];
 
@@ -65,7 +65,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       'v0': 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 ring-yellow-700/10 dark:ring-yellow-300/10',
       'Tailwind CSS': 'bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 ring-teal-700/10 dark:ring-teal-300/10',
       'TypeScript': 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 ring-orange-700/10 dark:ring-orange-300/10',
-      'Next.js': 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 ring-purple-700/10 dark:ring-purple-300/10'
+      'Next.js': 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 ring-purple-700/10 dark:ring-purple-300/10',
+      'HTML/CSS': 'bg-pink-50 dark:bg-pink-900/20 text-pink-700 dark:text-pink-300 ring-pink-700/10 dark:ring-pink-300/10',
     };
 
     return techColors[tech] || 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10';

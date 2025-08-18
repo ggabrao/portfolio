@@ -56,7 +56,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.myDate = new Date();
   }
@@ -76,12 +75,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     return techColors[tech] || 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10';
   }
 
-  ngOnInit(): void {
-    // Optimize font loading to prevent FOUT/FOIT
-    if (isPlatformBrowser(this.platformId)) {
-      this.preloadFonts();
-    }
-
+  ngOnInit(): void { 
     //check user's theme
     if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       this.renderer.addClass(document.documentElement, 'dark');
@@ -201,42 +195,5 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     typeChar();
-  }
-
-  /**
-   * Preload fonts to prevent font shifting (FOUT/FOIT)
-   */
-  private preloadFonts(): void {
-    // Check if Font Loading API is supported
-    if ('fonts' in document && 'FontFace' in window) {
-      // Load Inter variable font
-      const interVar = new FontFace('Inter var', 'url(https://rsms.me/inter/font-files/InterVariable.woff2?v=4.0)');
-
-      interVar.load().then((font) => {
-        (document.fonts as any).add(font);
-        // Add a CSS class to indicate fonts are loaded
-        this.renderer.addClass(document.documentElement, 'fonts-loaded');
-      }).catch((error) => {
-        console.warn('Inter variable font failed to load:', error);
-        // Fallback to regular Inter
-        this.loadFallbackFont();
-      });
-    } else {
-      // Fallback for browsers without Font Loading API
-      this.loadFallbackFont();
-    }
-  }
-
-  private loadFallbackFont(): void {
-    // Use traditional approach for older browsers
-    const link = this.renderer.createElement('link');
-    this.renderer.setAttribute(link, 'rel', 'stylesheet');
-    this.renderer.setAttribute(link, 'href', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    this.renderer.appendChild(document.head, link);
-
-    // Add class after a short delay to assume font is loaded
-    setTimeout(() => {
-      this.renderer.addClass(document.documentElement, 'fonts-loaded');
-    }, 100);
-  }
+  }   
 }

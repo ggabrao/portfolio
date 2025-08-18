@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     // Start typing effect after a short delay
     setTimeout(() => {
       this.startTypingEffect();
-    }, 500);
+    }, 1000);
   }
 
   ngAfterViewInit(): void {

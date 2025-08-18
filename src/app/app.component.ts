@@ -1,7 +1,5 @@
-import { DatePipe, CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit, Renderer2, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { isPlatformBrowser } from '@angular/common';
+import { DatePipe, NgOptimizedImage, NgIf, NgFor } from '@angular/common';
+import { Component, OnInit, Renderer2, AfterViewInit, OnDestroy } from '@angular/core';
 
 interface Project {
   title: string;
@@ -14,7 +12,7 @@ interface Project {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, FormsModule, CommonModule, NgOptimizedImage],
+  imports: [DatePipe, NgIf, NgFor, NgOptimizedImage],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -75,7 +73,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     return techColors[tech] || 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 ring-gray-700/10 dark:ring-gray-300/10';
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     //check user's theme
     if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       this.renderer.addClass(document.documentElement, 'dark');
@@ -195,5 +193,5 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     typeChar();
-  }   
+  }
 }

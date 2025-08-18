@@ -1,4 +1,4 @@
-import { DatePipe, CommonModule } from '@angular/common';
+import { DatePipe, CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit, Renderer2, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
@@ -14,7 +14,7 @@ interface Project {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, FormsModule, CommonModule],
+  imports: [DatePipe, FormsModule, CommonModule, NgOptimizedImage],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {

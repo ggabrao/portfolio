@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   projects: Project[] = [
     {
       title: 'Next.js Handbook',
-      description: 'Designed to assist beginners in Next.js by sharing my personal knowledge and insights into key concepts of the framework.',
+      description: 'Notes and practical examples designed to help beginners understand some of the main concepts of the framework.',
       githubUrl: 'https://github.com/ggabrao/nextjs-handbook',
       liveUrl: 'https://nextjs-handbook-eight.vercel.app/',
       technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript']

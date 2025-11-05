@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       title: 'Career Tracker',
-      description: 'Next.js app built entirely with an AI pair programmer tool, under my guidance. All within the Vercel ecosystem.',
+      description: 'Next.js app built entirely with an AI pair programmer tool, under my guidance.',
       githubUrl: 'https://github.com/ggabrao/career-tracker-v0',
       liveUrl: 'https://career-tracker-v0.vercel.app',
       technologies: ['v0', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript']
